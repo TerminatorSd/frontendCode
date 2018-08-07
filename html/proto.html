@@ -1,0 +1,40 @@
+<!--
+ ============================
+ @Author:   shaoDong
+ @Date:   2018-07-30 20:59:27
+ @Last Modified by:   shaoDong
+ @Last Modified time: 2018-07-30 20:59:27
+ @Description: proto and prototype
+ ============================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Proto</title>
+
+</head>
+<body>
+
+  <div class="ao"></div>
+
+  <script>
+    function father() {
+      this.name = 'aa';
+      this.age = 'age';
+    }
+
+    function son() {
+      this.sonName = 'son';
+    };
+    son.prototype = new father();
+
+
+    var sonVal = new son();
+    console.log(sonVal);
+    // sonVal.__proto__ == father;
+    // sonVal.__proto__.__proto__ == Object;
+  </script>  
+  
+</body>
+</html>

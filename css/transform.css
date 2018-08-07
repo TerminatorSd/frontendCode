@@ -1,0 +1,75 @@
+.hover-trans {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.hover-trans::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 2px;
+  background-color: deeppink;
+  transition: transform .5s;
+  transform: scaleX(0);
+}
+.hover-trans:hover::before {
+  transform: scaleX(1);
+}
+
+.hover-orig {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  top: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+.hover-orig::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 2px;
+  background-color: deeppink;
+  transition: transform .5s;
+  transform: scaleX(0);
+  transform-origin: 100% 0；
+}
+.hover-orig:hover::before {
+  transform: scaleX(1);
+  transform-origin: 0 0;
+}
+
+.hover-block {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  top: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+.hover-block::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 60px;
+  background-color: deeppink;
+  transition: transform 1s;
+  /*transform: scale3d(.0, .0, .0);*/
+  transform: scaleY(0);
+  transi-origin: 0 0;
+}
+.hover-block:hover::before {
+  /*transform: scale3d(1, 1, 1);*/
+  transform: scaleX(1);
+  transform: scaleY(1);
+  /*transform-origin: 100% 0;*/
+}
