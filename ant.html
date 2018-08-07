@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蚂蚁线</title>
+    <style type="text/css">
+        @keyframes ants {
+            to { background-position:100% }
+        }
+        div{
+            width: 100px;
+            height:100px;
+            padding:1em;
+            border: 1px solid transparent;
+            background:
+                    linear-gradient(white,white) padding-box,
+                    repeating-linear-gradient( -45deg,
+                    green 0,
+                    green 40%,
+                    white 0,
+                    white 60%) 0 /.6em .6em;
+            animation: ants 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
