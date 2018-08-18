@@ -1,0 +1,106 @@
+<!--
+ ============================
+ @Author:   shaoDong
+ @Version:  1.0
+ @DateTime: 2018-08-18 09:08:11
+ @Description: 享元模式实现前端翻页
+ ============================
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>享元模式</title>
+</head>
+<body>
+  <div id="container"></div>
+  <button class="prev">prev</button>
+  <button class="next">next</button>
+
+<script type="text/javascript">
+  // 每页的记录条数
+  var num = 4;
+  var article = [
+    'di 1 tiao',
+    'di 2 tiao',
+    'di 3 tiao',
+    'di 4 tiao',
+    'di 5 tiao',
+    'di 6 tiao',
+    'di 7 tiao',
+    'di 8 tiao',
+  ];
+
+  var sharedMode = function() {
+    // 已创建的元素
+    var created = [];
+    function create() {
+      // 元素数量没达到num 之前创建并插入一个新元素
+      var dom = document.createElement('div');
+      document.getElementById('container').appendChild(dom);
+      created.push(dom);
+      return dom;
+    }
+    return {
+      getDiv: function () {
+        if(created.length < num) {
+          return create();
+        } else {
+          // 拿到第一个元素
+          var div = created.shift();
+          // 放到最后
+          created.push(div);
+          return div;
+        }
+      }
+    }
+  }();
+
+  window.onload = function () {
+    var page = 0,
+        len = article.length,
+        // 当前页的第一条记录的下标  
+        nowIndex = 0;
+
+    // 初始化第一页内容
+    for(var i = 0; i < num; i++) {
+      sharedMode.getDiv().innerHTML = article[i];
+    }
+
+    // 点击下一页
+    document.getElementsByClassName('next')[0].onclick = function () {
+      // 不足num条记录或当前页是最后一页
+      if(article.length < num || len <= nowIndex + num) {
+        alert('没有下一页了！');
+        return;
+      }
+      nowIndex = ++page * num;
+      for(var j = 0;j < num; j++) {
+        if(article[nowIndex + j]) {
+          sharedMode.getDiv().innerHTML = article[nowIndex + j];
+        } else {
+          sharedMode.getDiv().innerHTML = "";
+        }
+      }
+    };
+
+    // 点击上一页
+    document.getElementsByClassName('prev')[0].onclick = function () {
+      // 当前是第一页
+      if(nowIndex <= 0) {
+        alert('没有上一页了！');
+        return;
+      }
+      nowIndex = --page * num;
+      for(var j = 0;j < num; j++) {
+        if(article[nowIndex + j]) {
+          sharedMode.getDiv().innerHTML = article[nowIndex + j];
+        } else {
+          sharedMode.getDiv().innerHTML = "";
+        }
+      }
+    };
+  }
+</script>
+</body>
+</html>
