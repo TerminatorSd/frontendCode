@@ -5,19 +5,22 @@
  * @Description: 连续五次IEEF 输出数字
  */
 
+// 0 1 2 3 4
 for(var i = 0; i < 5; i++) {
   (function (i) {
     setTimeout(() => {
       console.log(i);
-    }, 0)
+    }, 1000)
   })(i);
 }
 
-for(var i.j = 0; i.j < 5; i.j++) {
+// 5 5 5 5 5
+var obj = {};
+for(obj.j = 0; obj.j < 5; obj.j++) {
   (function (i) {
     setTimeout(() => {
-      console.log(i.j);
-    }, 0)
-  })(JSON.parse(JSON.stringify(i)));
+      console.log(obj.j);
+    }, 1000)
+  })(JSON.parse(JSON.stringify(obj)));
 }
 
