@@ -1,0 +1,6 @@
+/*
+ * @Author:   shaoDong
+ * @Version:  1.0
+ * @DateTime: 2018-07-02 21:31:04
+ * @Description: 判断一个数组是否能通过修改一个数成为非递减数组
+ */
