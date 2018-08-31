@@ -15,8 +15,8 @@ function quickSort(arr, left, right) {
   if(left >= right) {
     return;
   }
-  var base = arr[left];
-  var i = left,
+  var base = arr[left],
+      i = left,
       j = right,
       temp;
   while(i < j) {
@@ -30,9 +30,7 @@ function quickSort(arr, left, right) {
     }
     // 交换位置
     if(i < j) {
-      temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+      temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
     }
   }
   // 交换基数与下标i 的位置
