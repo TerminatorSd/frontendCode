@@ -1,0 +1,32 @@
+<!--
+ ============================
+ @Author:   shaoDong
+ @Version:  1.0
+ @DateTime: 2018-09-02 15:23:25
+ @Description: 关于层叠上下文
+ ============================
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>层叠</title>
+
+  <style>
+    .red, .green, .blue { position: absolute; } 
+    .red { background: red; z-index: 1; } 
+    .green { background: green; } 
+    .blue { background: blue; }
+    
+    /*没有以下样式代码时1 在最上层
+    有了以下样式代码时3 在最上层*/
+    /*div:first-child { opacity: .99; }*/
+  </style>
+</head>
+<body>
+
+  <div><!-- 1 --> <span class="red"><!-- 6 -->1</span> </div>
+  <div><!-- 2 --> <span class="green"><!-- 4 -->2<span> </div>
+  <div><!-- 3 --> <span class="blue"><!-- 5 -->3</span> </div>
+</body>
+</html>

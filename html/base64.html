@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>boots</title>
+
+  <link rel="stylesheet" href="../css/bootstrap.css" />
+  <link rel="stylesheet" href="../css/sd_css.css" />
+</head>
+<body>
+
+  <button onclick="doTransfer()">anniu</button>
+  <script>
+    function doTransfer(argument) {
+      var img = new Image();
+      img.crossOrigin="anonymous";
+      img.src = 'qiaoba.jpg';
+      img.onload = function () {
+        var baseRes = image2Base64(img);
+        console.log(baseRes);
+      }
+    }
+    function image2Base64(img) {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, img.width, img.height);
+      var dataURL = canvas.toDataURL("image/jpg");
+      return dataURL;
+    }
+  </script>
+</body>
+</html>
+
