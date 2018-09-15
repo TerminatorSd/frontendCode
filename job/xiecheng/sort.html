@@ -1,0 +1,100 @@
+<!--
+ ============================
+ @Author:   shaoDong
+ @Version:  1.0
+ @DateTime: 2018-09-04 19:40:26
+ @Description: 制作一个网页，显示出排序算法的过程，重点是页面和动画，而不是输入和输出
+ ============================
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>sort animation</title>
+
+  <style>
+    ul li {
+      position: relative;
+      padding: 6px 8px;
+      margin-left: 6px;
+      list-style: none;
+      display: inline-block;
+      border: 1px solid grey;
+    }
+    @keyframes left {
+      from {left:0px;}
+      to {left: -34px;}
+    }
+
+    @-webkit-keyframes left {
+      from {left:0px;}
+      to {left: -34px;}
+    }
+
+    @keyframes right {
+      from {left:0px;}
+      to {left: 34px;}
+    }
+
+    @-webkit-keyframes right {
+      from {left:0px;}
+      to {left: 34px;}
+    }
+  </style>
+</head>
+<body>
+  <ul id="ulDiv">
+    
+  </ul>
+  <script>
+    var num = 0;
+    window.onload = function() {
+      var arr = [5, 8, 2, 7, 1, 9];
+      var str = '';
+      for(var i = 0; i < arr.length; i++) {
+        str += '<li>' + arr[i] + '</li>'
+      }
+      var ulDiv = document.getElementById('ulDiv');
+      ulDiv.innerHTML = str;
+      // 进行排序
+      bubbleSort(arr);
+    };
+    // 交换两个元素的位置
+    function changePos(i, j) {
+      var time = num++ * 2000;
+      var ulDiv = document.getElementById('ulDiv');
+      // 展示动画
+      setTimeout(function(argument) {
+        ulDiv.children[i].style.animation = 'right 2s';
+        ulDiv.children[j].style.animation = 'left 2s';
+      }, time);
+      setTimeout(function() {
+        // 动画结尾瞬间交换两个位置的值
+        var temp = ulDiv.children[i].innerText;
+        ulDiv.children[i].innerText = ulDiv.children[j].innerText;
+        ulDiv.children[j].innerText = temp;
+      }, time + 2000)
+    }
+    // 冒泡排序
+    function bubbleSort(arr) {
+      var i = arr.length - 1;
+      while(i > 0) {
+        // 每次记录下最后一次交换的位置，下一次的比较只需走到这里
+        var pos = 0;
+        for(var j = 0; j < i; j++) {
+          if(arr[j] > arr[j + 1]) {
+            pos = j;
+            var temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+            changePos(j, j + 1);
+          }
+        }
+        i = pos;
+      }
+      return arr;
+    }
+  </script>
+</body>
+</html>
