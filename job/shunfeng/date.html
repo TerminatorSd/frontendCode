@@ -42,26 +42,26 @@
           strObj1[str[i]] = 1;
         }
       }
-    //   // 遍历str1，统计字符
-    //   for(var j = 0, len1 = str1.length; j < len1; j++) {
-    //       if(strObj2[str1[j]]) {
-    //         strObj2[str1[j]] += 1;
-    //       } else {
-    //         strObj2[str1[j]] = 1;
-    //       }
-    //   }
-    //   // 遍历str，添加答案
-    //   for(var i = 0, len = str.length; i < len; i++) {
-    //       if(strObj1[str[i]] == 1 && !strObj2[str[i]]) {
-    //           res.push(str[i]);
-    //       }
-    //   }
-    //   // 遍历str1，添加答案
-    //   for(var j = 0, len = str1.length; j < len; j++) {
-    //       if(strObj2[str1[j]] == 1 && !strObj1[str1[j]]) {
-    //           res.push(str1[j]);
-    //       }
-    //   }
+      // 遍历str1，统计字符
+      for(var j = 0, len1 = str1.length; j < len1; j++) {
+          if(strObj2[str1[j]]) {
+            strObj2[str1[j]] += 1;
+          } else {
+            strObj2[str1[j]] = 1;
+          }
+      }
+      // 遍历str，添加答案
+      for(var i = 0, len = str.length; i < len; i++) {
+          if(strObj1[str[i]] == 1 && !strObj2[str[i]]) {
+              res.push(str[i]);
+          }
+      }
+      // 遍历str1，添加答案
+      for(var j = 0, len = str1.length; j < len; j++) {
+          if(strObj2[str1[j]] == 1 && !strObj1[str1[j]]) {
+              res.push(str1[j]);
+          }
+      }
     //   var temp = res.sort().join('');
     //   var reverseRes = res.reverse().join('');
     //   console.log(temp + reverseRes);
