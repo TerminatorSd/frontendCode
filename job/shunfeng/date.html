@@ -6,6 +6,7 @@
 </head>
 <body>
   <script>
+    // 给两个日期字符串，计算其相差的小时数
     function compare(t1, t2) {
       var hour, point;
       var num1 = Date.parse(new Date(t1));
@@ -30,6 +31,7 @@
       return hour;    
     }
     console.log(compare("1000-06-22 15:00","2018-06-22 15:30"));
+    // 找出两个字符串不同的字符，以升序排序，并拼接其逆序字符串
     function compare(str, str1) {
       var strObj1 = {};
       var strObj2 = {};
