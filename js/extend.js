@@ -17,12 +17,12 @@ Animal.prototype.eat = function() {
 }
 
 // 原型继承
-// function Cat(){ }
-// Cat.prototype = new Animal();
-// Cat.prototype.name = 'cat';
-// var cat = new Cat();
-// cat.sleep();
-// cat.eat();
+function Cat(){ }
+Cat.prototype = new Animal();
+Cat.prototype.name = 'cat';
+var cat = new Cat();
+cat.sleep();
+cat.eat();
 
 // 构造函数继承
 // function Cat(name){
