@@ -47,13 +47,13 @@ cat.eat();
 cat.sleep();
 
 // 拷贝继承
-// function Cat(name){
-//   var animal = new Animal();
-//   for(var p in animal){
-//     Cat.prototype[p] = animal[p];
-//   }
-//   Cat.prototype.name = name;
-// }
+function Cat(name){
+  var animal = new Animal();
+  for(var p in animal){
+    Cat.prototype[p] = animal[p];
+  }
+  Cat.prototype.name = name;
+}
 
 // // Test Code
 // var cat = new Cat('cat');
