@@ -40,11 +40,11 @@ function Cat(name){
   instance.name = name;
   return instance;
 }
-// // test code
-// var cat = new Cat('cat');
-// console.log(cat.name);
-// cat.eat();
-// cat.sleep();
+// test code
+var cat = new Cat('cat');
+console.log(cat.name);
+cat.eat();
+cat.sleep();
 
 // 拷贝继承
 // function Cat(name){
