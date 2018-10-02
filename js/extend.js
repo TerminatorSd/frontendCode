@@ -35,11 +35,11 @@ cat.eat();  // error
 cat.sleep(); 
 
 // 实例继承
-// function Cat(name){
-//   var instance = new Animal();
-//   instance.name = name;
-//   return instance;
-// }
+function Cat(name){
+  var instance = new Animal();
+  instance.name = name;
+  return instance;
+}
 // // test code
 // var cat = new Cat('cat');
 // console.log(cat.name);
