@@ -62,11 +62,11 @@ cat.eat();
 cat.sleep();
 
 // 组合继承
-// function Cat(name){
-//   Animal.call(this);
-//   this.name = name;
-// }
-// Cat.prototype = new Animal();
+function Cat(name){
+  Animal.call(this);
+  this.name = name;
+}
+Cat.prototype = new Animal();
 
 // // 感谢 @学无止境c 的提醒，组合继承也是需要修复构造函数指向的。
 
