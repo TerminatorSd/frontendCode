@@ -25,10 +25,10 @@ cat.sleep();
 cat.eat();
 
 // 构造函数继承
-// function Cat(name){
-//   Animal.call(this);
-//   this.name = name || 'Tom';
-// }
+function Cat(name){
+  Animal.call(this);
+  this.name = name || 'Tom';
+}
 // // test code
 // var cat = new Cat('cat');
 // cat.eat();  // error
