@@ -29,10 +29,10 @@ function Cat(name){
   Animal.call(this);
   this.name = name || 'Tom';
 }
-// // test code
-// var cat = new Cat('cat');
-// cat.eat();  // error
-// cat.sleep(); 
+// test code
+var cat = new Cat('cat');
+cat.eat();  // error
+cat.sleep(); 
 
 // 实例继承
 // function Cat(name){
