@@ -55,11 +55,11 @@ function Cat(name){
   Cat.prototype.name = name;
 }
 
-// // Test Code
-// var cat = new Cat('cat');
-// console.log(cat.name);
-// cat.eat();
-// cat.sleep();
+// Test Code
+var cat = new Cat('cat');
+console.log(cat.name);
+cat.eat();
+cat.sleep();
 
 // 组合继承
 // function Cat(name){
