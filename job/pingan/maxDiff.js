@@ -5,7 +5,6 @@
  * @Description: max diff
  **/
 
- 
 function getMaxProfit(arr) {
   var max = 0,
       len = arr.length;
