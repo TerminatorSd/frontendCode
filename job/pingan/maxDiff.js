@@ -4,7 +4,6 @@
  * @DateTime: 2018-10-15 14:55:45
  * @Description: max diff
  **/
-
 function getMaxProfit(arr) {
   var max = 0,
       len = arr.length;
