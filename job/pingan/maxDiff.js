@@ -2,7 +2,7 @@
  * @Author:   shaoDong
  * @Version:  1.0
  * @DateTime: 2018-10-15 14:55:45
- * @Description: des
+ * @Description: max diff
  **/
 function getMaxProfit(arr) {
   var max = 0,
