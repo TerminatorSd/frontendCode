@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TransChange</title>
+    <style type="text/css">
+       /* @keyframes ants {
+            to { background-position:100% }
+        }*/
+        /*div{
+            width: 100px;
+            height:100px;
+            padding:1em;
+            border: 1px solid transparent;
+            background:
+                    linear-gradient(white,white) padding-box,
+                    repeating-linear-gradient( -45deg,
+                    green 0,
+                    green 40%,
+                    white 0,
+                    white 60%) 0 /.6em .6em;
+            animation: ants 6s linear infinite;
+        }*/
+        div {
+          border: 1px solid red;
+          width: 40px;
+          height: 40px
+        }
+    </style>
+</head>
+<body>
+<div>a</div>
+<script>
+  window.onload = function() {
+    var divDom = document.getElementsByTagName('div')[0];
+    divDom.style['transform'] = 'translateX(100px)';
+    // divDom.style['transition'] = 'transform 2s ease-out';
+    
+    divDom.style['transition'] = 'transform 2s ease-out';
+    setTimeout(function() {
+      divDom.style['transform'] = 'translateY(100px)';
+    }, 10);
+    divDom.style['transition'] = 'transform 2s ease-out';
+    
+  }
+  
+</script>
+</body>
+</html>
