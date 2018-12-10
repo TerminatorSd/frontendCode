@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>debounce</title>
+    <style>
+      #btn {
+        width: 100px;
+        height: 20px;
+        border: 1px solid blue;
+      }
+    </style>
+</head>
+<body>
+<button id="btn">a</button>
+<script>
+  window.onload = function (argument) {
+    var btn = document.getElementById('btn');
+    btn.onclick = function() {
+      debounce(function() {
+        console.log('1');
+      }, 1000);
+    }
+  
+  }
+  function debounce(fn, wait) {
+    var timer = null;
+    return function(){
+        clearTimeout(timer)
+        timer = setTimeout(()=>{
+            fn();
+        }, wait)
+    }
+  };
+</script>
+</body>
+</html>
