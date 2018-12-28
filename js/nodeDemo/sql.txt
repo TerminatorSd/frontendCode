@@ -1,0 +1,124 @@
+CREATE TABLE `exam` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
+  `school_id` int(11) DEFAULT NULL,
+  `school` varchar(200) DEFAULT NULL,
+  `mark` varchar(200) DEFAULT NULL,
+  `headcount` int(11) DEFAULT NULL COMMENT '招聘人数',
+  `signup_time` datetime DEFAULT NULL COMMENT '考试报名时间',
+  `exam_subject` varchar(200) DEFAULT NULL COMMENT '考试科目',
+  `signup_url` varchar(200) DEFAULT NULL COMMENT '报名地址',
+  `score_url` varchar(200) DEFAULT NULL COMMENT '成绩查询地址',
+  `hold` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否承办',
+  `invigilate_hire` smallint(5) NOT NULL COMMENT '监考人预招聘数',
+  `invigilate_fee` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+---
+CREATE TABLE `invigilators_pre` (
+  `id` int(11) NOT NULL,
+  `user_wx_id` int(11) NOT NULL COMMENT '微信用户id',
+  `idcard` varchar(16) NOT NULL COMMENT '身份证',
+  `name` varchar(16) NOT NULL,
+  `sex` tinyint(1) NOT NULL,
+  `idcard_stu` varchar(20) NOT NULL COMMENT '学生证id',
+  `idcard_tech` varchar(20) NOT NULL COMMENT '教师证id',
+  `photo_relative_url` varchar(100) NOT NULL COMMENT '证件照地址',
+  `titles` tinyint(2) NOT NULL COMMENT '职称',
+  `enroll_year` smallint(4) NOT NULL COMMENT '入学年份',
+  `tel` varchar(15) NOT NULL,
+  `school_id` int(11) NOT NULL,
+  `department` varchar(30) NOT NULL COMMENT '所在单位名称',
+  `status` tinyint(1) NOT NULL COMMENT '审核状态，0通过，1不过，2注册成功',
+  `reason` varchar(100) NOT NULL COMMENT '不通过原因'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+---
+CREATE TABLE `invigilators_signup_pre` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL COMMENT '考试id',
+  `resource_id` int(11) NOT NULL COMMENT '考点 id',
+  `invigilators_id` int(11) NOT NULL COMMENT '监考人员id',
+  `status` tinyint(2) NOT NULL DEFAULT '3' COMMENT '审核状态，0通过，1待确认，2为不通过，3为报名成功',
+  `create_time` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='监考人员报名表';
+---
+CREATE TABLE `invigilators_signup` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL COMMENT '考试id',
+  `resource_id` int(11) NOT NULL COMMENT '考点 id',
+  `invigilators_id` int(11) NOT NULL COMMENT '监考人员id',
+  `idcard` varchar(20) NOT NULL COMMENT '身份证',
+  `name` varchar(200) NOT NULL COMMENT '姓名',
+  `tel` varchar(20) NOT NULL COMMENT '电话',
+  `titles` tinyint(2) NOT NULL COMMENT '职称',
+  `examsitenum` varchar(10) NOT NULL COMMENT '考场号',
+  `roomnum` varchar(15) NOT NULL COMMENT '教室号'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='监考人员报名表';
+---
+CREATE TABLE `invigilators_test` (
+  `id` int(11) NOT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `title` varchar(30) NOT NULL,
+  `test` text NOT NULL COMMENT '测试题目',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0为不发布，1为发布'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='监考人员测试题目';
+---
+CREATE TABLE `invigilators` (
+  `id` int(11) NOT NULL,
+  `user_wx_id` int(11) NOT NULL COMMENT '微信用户id',
+  `idcard` varchar(16) NOT NULL COMMENT '身份证',
+  `name` varchar(16) NOT NULL,
+  `sex` tinyint(1) NOT NULL,
+  `idcard_stu` varchar(20) NOT NULL COMMENT '学生证id',
+  `idcard_tech` varchar(20) NOT NULL COMMENT '教师证id',
+  `photo_relative_url` varchar(100) NOT NULL COMMENT '证件照地址',
+  `titles` tinyint(2) NOT NULL COMMENT '职称',
+  `enroll_year` smallint(4) NOT NULL COMMENT '入学年份',
+  `tel` varchar(15) NOT NULL,
+  `school_id` int(11) NOT NULL,
+  `department` varchar(30) NOT NULL COMMENT '所在单位名称',
+  `status` tinyint(1) NOT NULL COMMENT '是否启用',
+  `invigilate_times` smallint(5) NOT NULL COMMENT '监考次数',
+  `score` decimal(5,2) NOT NULL COMMENT '得分',
+  `last_score` decimal(5,2) NOT NULL,
+  `score_record` varchar(20) NOT NULL,
+  `mark` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+---
+CREATE TABLE `resource` (
+  `id` int(11) NOT NULL,
+  `province` varchar(20) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `school` varchar(20) NOT NULL,
+  `dept` longtext NOT NULL,
+  `sort` mediumint(9) NOT NULL COMMENT '排序'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+---
+CREATE TABLE `sys_user` (
+  `id` int(11) NOT NULL,
+  `age` int(11) NOT NULL,
+  `login_name` varchar(30) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `mobile` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+---
+CREATE TABLE `user_wx` (
+  `id` int(11) NOT NULL,
+  `openid` varchar(63) NOT NULL,
+  `nickname` varchar(31) DEFAULT NULL,
+  `province_name` varchar(31) DEFAULT NULL,
+  `city_name` varchar(31) DEFAULT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `headpic` varchar(150) DEFAULT NULL,
+  `sex` smallint(6) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+---
+CREATE TABLE `exam_resource` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `resource_id` int(11) NOT NULL,
+  `resource_name` varchar(40) NOT NULL COMMENT '考场名称',
+  `examsitenum_2_roomnum` text NOT NULL COMMENT '考场号对应教室json'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='考试 考场对应表';

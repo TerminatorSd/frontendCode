@@ -1,0 +1,135 @@
+
+
+
+【exam】表
+|-- id (undefined) int(11)
+|-- name (undefined) varchar(200)
+|-- start_time (undefined) datetime
+|-- end_time (undefined) datetime
+|-- school_id (undefined) int(11)
+|-- school (undefined) varchar(200)
+|-- mark (undefined) varchar(200)
+|-- headcount (招聘人数) int(11)
+|-- exam_subject (考试科目) varchar(200)
+|-- signup_time (考试报名时间) datetime
+|-- signup_url (报名地址) varchar(200)
+|-- hold (是否承办) tinyint(1)
+|-- score_url (成绩查询地址) varchar(200)
+|-- invigilate_hire (监考人预招聘数) smallint(5)
+|-- invigilate_fee (undefined) int(10)
+
+
+
+【invigilators_pre】表
+|-- id (undefined) int(11)
+|-- user_wx_id (微信用户id) int(11)
+|-- idcard (身份证) varchar(16)
+|-- name (undefined) varchar(16)
+|-- sex (undefined) tinyint(1)
+|-- idcard_tech (教师证id) varchar(20)
+|-- idcard_stu (学生证id) varchar(20)
+|-- photo_relative_url (证件照地址) varchar(100)
+|-- titles (职称) tinyint(2)
+|-- enroll_year (入学年份) smallint(4)
+|-- tel (undefined) varchar(15)
+|-- school_id (undefined) int(11)
+|-- department (所在单位名称) varchar(30)
+|-- status (审核状态，0通过，1不过，2注册成功) tinyint(1)
+|-- reason (不通过原因) varchar(100)
+
+
+
+【invigilators_signup_pre】表
+|-- id (undefined) int(11)
+|-- exam_id (考试id) int(11)
+|-- invigilators_id (监考人员id) int(11)
+|-- resource_id (考点 id) int(11)
+|-- status (审核状态，0通过，1待确认，2为不通过，3为报名成功) tinyint(2)
+|-- create_time (undefined) datetime
+
+
+
+【invigilators_signup】表
+|-- id (undefined) int(11)
+|-- resource_id (考点 id) int(11)
+|-- invigilators_id (监考人员id) int(11)
+|-- idcard (身份证) varchar(20)
+|-- exam_id (考试id) int(11)
+|-- name (姓名) varchar(200)
+|-- tel (电话) varchar(20)
+|-- examsitenum (考场号) varchar(10)
+
+
+
+【invigilators_test】表
+|-- roomnum (教室号) varchar(15)
+|-- titles (职称) tinyint(2)
+|-- id (undefined) int(11)
+|-- title (undefined) varchar(30)
+|-- create_time (undefined) datetime
+|-- status (监考人员测试题目) tinyint(1)
+|-- test (测试题目) text
+
+
+
+【invigilators】表
+|-- user_wx_id (微信用户id) int(11)
+|-- id (undefined) int(11)
+|-- idcard (身份证) varchar(16)
+|-- name (undefined) varchar(16)
+|-- sex (undefined) tinyint(1)
+|-- idcard_stu (学生证id) varchar(20)
+|-- idcard_tech (教师证id) varchar(20)
+|-- photo_relative_url (证件照地址) varchar(100)
+|-- titles (职称) tinyint(2)
+|-- enroll_year (入学年份) smallint(4)
+|-- tel (undefined) varchar(15)
+|-- school_id (undefined) int(11)
+|-- department (所在单位名称) varchar(30)
+|-- status (是否启用) tinyint(1)
+|-- invigilate_times (监考次数) smallint(5)
+|-- score (得分) decimal(5,2)
+|-- last_score (undefined) decimal(5,2)
+|-- score_record (undefined) varchar(20)
+|-- mark (undefined) varchar(20)
+
+
+
+【resource】表
+|-- id (undefined) int(11)
+|-- province (undefined) varchar(20)
+|-- city (undefined) varchar(20)
+|-- school (undefined) varchar(20)
+|-- dept (undefined) longtext
+|-- sort (排序) mediumint(9)
+
+
+
+【sys_user】表
+|-- id (undefined) int(11)
+|-- age (undefined) int(11)
+|-- login_name (undefined) varchar(30)
+|-- name (undefined) varchar(30)
+|-- email (undefined) varchar(30)
+|-- mobile (undefined) varchar(11)
+
+
+
+【user_wx】表
+|-- id (undefined) int(11)
+|-- openid (undefined) varchar(63)
+|-- nickname (undefined) varchar(31)
+|-- province_name (undefined) varchar(31)
+|-- city_name (undefined) varchar(31)
+|-- create_time (undefined) timestamp
+|-- headpic (undefined) varchar(150)
+|-- sex (0) smallint(6)
+
+
+
+【exam_resource】表
+|-- id (undefined) int(11)
+|-- exam_id (undefined) int(11)
+|-- resource_id (undefined) int(11)
+|-- resource_name (考场名称) varchar(40)
+|-- examsitenum_2_roomnum (考试 考场对应表) text

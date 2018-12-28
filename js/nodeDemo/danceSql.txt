@@ -1,0 +1,40 @@
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL COMMENT '用户id',
+  `name` varchar(256) NOT NULL COMMENT '用户名称',
+  `school` varchar(256) NOT NULL COMMENT '学校',
+  `label` varchar(256) NOT NULL COMMENT '标签',
+  `gender` varchar(256) NOT NULL COMMENT '性别',
+  `phone` text NOT NULL COMMENT '电话'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+---
+CREATE TABLE `activity` (
+  `id` int(10) NOT NULL COMMENT '自增编号',
+  `name` varchar(100) NOT NULL COMMENT '活动名称',
+  `label` varchar(256) NOT NULL COMMENT '活动标签',
+  `time` datetime NOT NULL COMMENT '活动时间',
+  `join_num` int(10) NOT NULL COMMENT '参加人数',
+  `pub_dancer` varchar(100) NOT NULL COMMENT '发起者',
+  `status` text NOT NULL COMMENT '状态',
+  `join_dancer` text NOT NULL COMMENT '参加人员',
+  `place` text NOT NULL COMMENT '活动地址',
+  `create_time` datetime NOT NULL COMMENT '创建时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='活动表';
+---
+CREATE TABLE `user_activity` (
+  `id` int(11) NOT NULL COMMENT '自增编号',
+  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `activity_id` int(11) NOT NULL COMMENT '活动id',
+  `pub_status` int(11) NOT NULL COMMENT '发布状态',
+  `join_status` int(11) NOT NULL COMMENT '参与状态'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户活动表';
+---
+CREATE TABLE `school` (
+  `id` int(11) NOT NULL COMMENT '学校id',
+  `name` varchar(256) NOT NULL COMMENT '学校名称',
+  `city` varchar(256) NOT NULL COMMENT '所在城市'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学校表';
+---
+CREATE TABLE `label` (
+  `id` int(11) NOT NULL COMMENT '标签id',
+  `name` varchar(256) NOT NULL COMMENT '标签名'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='标签表';
