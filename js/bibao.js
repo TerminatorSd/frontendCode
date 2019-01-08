@@ -7,16 +7,28 @@
 */
 
 // 阮一峰第一题
-// var name = "The Window";
-// var object = {
-//   name : "My Object",
-//   getName : function() {
-//     return function() {
-//       return this.name;
-//     };
-//   }
-// };
-// console.log(object.getName()());
+var name = "The Window";
+var object = {
+  name : "My Object",
+  getName : function() {
+  	this.name = 'adsf';
+    return function() {
+      return this.name;
+    };
+  }
+};
+
+// 第一题扩展
+var object1 = function() {
+	// 匿名函数中的this 都指向window，所以这里的name 也是加在window 上
+	this.name = "haha";
+	return function() {
+		return this.name;
+	}
+}
+
+console.log(object.getName()());  // undefined
+console.log(object1()());  // haha
 
 // 阮一峰第二题
 // var name = "The Window";
@@ -70,19 +82,23 @@
 // test.intest()();
 
 // 带new 和不带new 的区别
-str = 'window';
-console.log(this); //window
-var test = function() {
-  this.str = 'inner';
-  console.log(this  === global);
-	// console.log(this); //[object Object]
-	// console.log(this.str); //test
-	// console.log(str); //window
-	intest = function() {
-		// this.str = "intest";
-		// console.log(this); //[object Window]
-		console.log(this.str); //intest
-	}
-}
+// str = 'window';
+// console.log(this); //window
+// var test = function() {
+//   this.str = 'inner';
+//   console.log(this  === global);
+// 	// console.log(this); //[object Object]
+// 	// console.log(this.str); //test
+// 	// console.log(str); //window
+// 	intest = function() {
+// 		// this.str = "intest";
+// 		// console.log(this); //[object Window]
+// 		console.log(this.str); //intest
+// 	}
+// }
 
-new test();
+// new test();
+
+
+
+
