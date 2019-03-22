@@ -61,12 +61,12 @@ def getImg(dataList, localPath):
             if i.get('thumbURL') != None:
                 print('正在下载：%s' % i.get('thumbURL'))
                 ir = requests.get(i.get('thumbURL'))
-                open(localPath + 'baidu_computer%d.jpg' % x, 'wb').write(ir.content)
+                open(localPath + 'baidu_dog_%d.jpg' % x, 'wb').write(ir.content)
                 x += 1
             else:
                 print('图片链接不存在')
 
 if __name__ == '__main__':
     dataList = getManyPages('computer', 5)  # 参数1:关键字，参数2:要下载的页数
-    getImg(dataList,'/home/xsd/Deep_Learning/Python_code/crawer_image/') # 参数2:指定保存的路径
-    print "Done!"
+    getImg(dataList,'/Users/shaodong/myGit/ganCode/data/dog/') # 参数2:指定保存的路径
+    print ("Done!")

@@ -23,14 +23,14 @@ def getImg(html):
     x = 0
     y = 0
     for imgurl in imglist:
-        urllib.urlretrieve(imgurl,'/home/xsd/Deep_Learning/Python_code/images/%s.jpg' % x)
+        urllib.urlretrieve(imgurl,'/Users/shaodong/myGit/ganCode/data/dog/%s.jpg' % x)
         x+=1
 
-    for imgurl_2 in imglist_2:
-        urllib.urlretrieve(imgurl_2, '/home/xsd/Deep_Learning/Python_code/images/%s.png' % x)
-        y += 1
+    # for imgurl_2 in imglist_2:
+    #     urllib.urlretrieve(imgurl_2, '/home/xsd/Deep_Learning/Python_code/images/%s.png' % x)
+    #     y += 1
     return "Done!"
 
-url = "http://pet.pclady.com.cn/dog/"
+url = "https://image.baidu.com/search/index?isource=infinity&iname=baidu&tn=baiduimage&word=dog"
 html = getHtml(url)
-print getImg(html)
+print (getImg(html))
