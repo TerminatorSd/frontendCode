@@ -10,7 +10,9 @@ function Emt() {
   this.emit = function (str, obj) {
     this._bus[str] = obj;
   }
+
   // on 是用来订阅，emit 是用来发布的，此处的错误在于搞反了两者的逻辑
+  // 也不是搞反，是完全乱套，不知道什么时候该做什么
   this.on = function (str, fun) {
     if(this._bus[str]) {
       fun(this._bus[str]);
@@ -26,7 +28,6 @@ setTimeout(function () {
     val: 'b'
   });
 }, 1000)
-
 
 
 demo.on('haha', function (msg) {
