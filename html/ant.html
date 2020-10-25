@@ -22,8 +22,26 @@
             animation: ants 6s linear infinite;
         }
     </style>
+    <!-- <script src="../js/money.js"></script> -->
+    <script type="text/javascript">
+        window.addEventListener('error', function(evt) {
+            if(evt.target === window) {
+                // JS 运行时错误
+            } else {
+                // 资源加载错误
+            }
+        });
+        var oldError = console.error;
+        console.error = function(evt) {
+            console.log(evt);
+            oldError.apply(console , arguments);
+        }
+        console.log(window.a.abs)
+    </script>
 </head>
 <body>
 <div></div>
+
+
 </body>
 </html>

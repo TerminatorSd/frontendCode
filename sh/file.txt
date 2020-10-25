@@ -1,0 +1,17 @@
+# Canary Deployment
+map $COOKIE_canary $group {
+    # canary account
+    ~*devui$ server_canary;
+    default server_default;
+}
+
+upstream server_canary {
+    # 两台机器的IP
+    server 11.12.11.12 weight=1 max_fails=1 fail_timeout=30s;
+    server 12.12.12.13 weight=1 max_fails=1 fail_timeout=30s;
+}
+
+upstream server_default {
+    server 11.12.11.12 weight=2 max_fails=1 fail_timeout=30s;
+    server 12.12.12.13 weight=2 max_fails=1 fail_timeout=30s;
+}
