@@ -13,7 +13,8 @@ function Father(name) {
 Father.prototype.sayHello = function() {
   console.log('hello');
 }
-
+// te
+// test
 var son1 = new Father('son1');
 var son2 = new Father('son2');
 
