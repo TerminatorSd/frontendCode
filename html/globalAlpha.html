@@ -1,0 +1,39 @@
+<!--
+ ============================
+ @Author:   shaoDong
+ @Version:  1.0
+ @DateTime: 2020-01-09 23:23:27
+ @Description: 
+ ============================
+-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>globalAlpha</title>
+  <style>
+    .color {
+      background: rgba(255,52,255,0.2)
+    }
+  </style>
+ 
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div class="color">1312</div>
+  <script>
+    const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+ctx.globalAlpha = 0.2;
+
+ctx.fillStyle = 'blue';
+ctx.fillRect(10, 10, 100, 100);
+
+ctx.fillStyle = 'red';
+ctx.fillRect(50, 50, 100, 100);
+console.log(ctx.getImageData(10,10,100,100))
+  </script>
+</body>
+</html>
